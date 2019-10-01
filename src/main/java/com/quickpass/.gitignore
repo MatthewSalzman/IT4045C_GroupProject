@@ -1,34 +1,4 @@
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**
-!**/src/test/**
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-
-### VS Code ###
-.vscode/
+/PlantPlacesController.java
 
 
 # Created by https://www.gitignore.io/api/eclipse
@@ -104,9 +74,3 @@ local.properties
 .sts4-cache/
 
 # End of https://www.gitignore.io/api/eclipse
-
-
-
-maven-wrapper.jar
-maven-wrapper*
-mvnw*

@@ -1,4 +1,4 @@
-package com.plantplaces;
+package com.quickpass;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  @return
 */
 @Controller
-public class PlantPlacesController {
+public class QuickpassController {
 	
 	@RequestMapping(value="/start", method=RequestMethod.GET)
 	public String start() {

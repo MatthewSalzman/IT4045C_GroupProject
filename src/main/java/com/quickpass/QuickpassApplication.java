@@ -1,13 +1,13 @@
-package com.plantplaces;
+package com.quickpass;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PlantplacesApplication {
+public class QuickpassApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PlantplacesApplication.class, args);
+		SpringApplication.run(QuickpassApplication.class, args);
 		
 	}
 
