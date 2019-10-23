@@ -49,5 +49,15 @@ public class QuickpassController {
 	public String index() {
 		return "start";
 	}
+	
+	@RequestMapping(value="/passwordtable", method=RequestMethod.GET)
+	public String startPasswordTable() {
+		return "passwordtable";
+	}
+	
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	public String startLogin() {
+		return "login";
+	}
 }
 
