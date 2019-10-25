@@ -11,7 +11,7 @@ public class PasswordServiceStub implements IPasswordService {
 	public PasswordDTO fetchById(int id) {
 		PasswordDTO passwordDTO = new PasswordDTO();
 		passwordDTO.setPasswordId(1);
-		passwordDTO.setUserId("Carlos");
+		passwordDTO.setUserId("John");
 		passwordDTO.setPassword("Pa$$w0rd");
 		return passwordDTO;
 	}
