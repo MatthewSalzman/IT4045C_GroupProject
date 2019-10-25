@@ -15,29 +15,29 @@ public class QuickpassController {
 	
 	@RequestMapping(value="/start", method=RequestMethod.GET)
 	public String start() {
-		return "start";
+		return "login";
 	}
 	
 	@RequestMapping(value="/start", method=RequestMethod.GET, headers={"content-type=text/json"})
 	public String readJSON() {
-		return "start";
+		return "login";
 	}
 	
 	
 	@RequestMapping(value="/start", method=RequestMethod.GET, params = {"loyalty=blue"})
 	public String readBlue() {
-		return "start";
+		return "login";
 	}
 	@RequestMapping(value="/start", method=RequestMethod.GET, params = {"loyalty=silver"})
 	public String readSilver() {
-		return "start";
+		return "login";
 	}
 	
 	
 	
 	@PostMapping("/start")
 	public String create() {
-		return "start";
+		return "login";
 	}
 	
 	/**
@@ -47,7 +47,7 @@ public class QuickpassController {
 	*/
 	@RequestMapping("/index")
 	public String index() {
-		return "start";
+		return "login";
 	}
 	
 	@RequestMapping(value="/passwordtable", method=RequestMethod.GET)
