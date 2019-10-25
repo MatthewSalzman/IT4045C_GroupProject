@@ -4,7 +4,7 @@ import com.quickpass.dto.PasswordDTO;
 
 
 /**
- * CRUD operations for specimens
+ * CRUD operations for passwords
  * @author Administrator
  *
  */
@@ -12,9 +12,9 @@ import com.quickpass.dto.PasswordDTO;
 public interface IPasswordStub {
 
 	/**
-	 * Get specimens from persistence layer.
+	 * Get passwords from persistence layer.
 	 * @param id a unique lookup
-	 *@return a specimen with a matching ID.
+	 *@return a password with a matching ID.
 	 */
 
 	PasswordDTO fetchById(int id);
@@ -23,7 +23,7 @@ public interface IPasswordStub {
 
 	/**
 	 * Persist the given DTO
-	 * @param specimenDTO
+	 * @param passwordDTO
 	 *
 	 */
 
