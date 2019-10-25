@@ -1,9 +1,16 @@
 package com.quickpass;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.quickpass.dto.PasswordDTO;
+import com.quickpass.service.IPasswordService;
+
 
 /**
  @author Administrator
@@ -13,9 +20,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class QuickpassController {
 	
+	@Autowired
+	private IPasswordService passwordServiceStub;
+	
+	
+	
 	@RequestMapping(value="/start", method=RequestMethod.GET)
-	public String start() {
-		return "start";
+	@ResponseBody
+	public PasswordDTO read(Model model) {
+		PasswordDTO passwordDTO = passwordServiceStub.fetchById(1);
+		model.addAttribute("passwordDTO", passwordDTO);
+		return passwordDTO;
 	}
 	
 	@RequestMapping(value="/start", method=RequestMethod.GET, headers={"content-type=text/json"})

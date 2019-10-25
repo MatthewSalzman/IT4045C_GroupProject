@@ -32,9 +32,10 @@ public class PasswordDTO {
 		this.password = password;
 	}
 	
+	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return website;
+		return passwordId + " " + userId + " " + password;
 
 	}
 	

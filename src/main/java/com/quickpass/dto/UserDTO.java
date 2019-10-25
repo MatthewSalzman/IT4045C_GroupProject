@@ -47,7 +47,7 @@ public class UserDTO {
 
 	public String toString() {
 		// TODO Auto-generated method stub
-		return firstName + " " + lastName;
+		return userId + " " + firstName + " " + lastName;
 
 	}
 	

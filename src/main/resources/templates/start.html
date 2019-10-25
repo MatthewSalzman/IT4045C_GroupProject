@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
 <title>PlantPlaces</title>
 </head>
 <body>
-	<p>Welcome to Quickpass!</p>
+Welcome to Quickpass!
+<br/>
+Your password information is:
+<p th:text="${passwordDTO}"/>		
 </body>
 </html>
