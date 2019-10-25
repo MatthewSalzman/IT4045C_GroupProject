@@ -4,7 +4,7 @@ import com.quickpass.dto.UserDTO;
 
 
 /**
- * CRUD operations for specimens
+ * CRUD operations for users
  * @author Administrator
  *
  */
@@ -12,9 +12,9 @@ import com.quickpass.dto.UserDTO;
 public interface IUserStub {
 
 	/**
-	 * Get specimens from persistence layer.
+	 * Get users from persistence layer.
 	 * @param id a unique lookup
-	 *@return a specimen with a matching ID.
+	 *@return a user with a matching ID.
 	 */
 
 	UserDTO fetchById(int id);
@@ -23,7 +23,7 @@ public interface IUserStub {
 
 	/**
 	 * Persist the given DTO
-	 * @param specimenDTO
+	 * @param userDTO
 	 *
 	 */
 
