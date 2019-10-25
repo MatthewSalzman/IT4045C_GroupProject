@@ -1,6 +1,6 @@
 package com.quickpass.service;
 
-import com.quickpass.dto.PasswordDTO;
+import com.quickpass.dto.UserDTO;
 
 
 /**
@@ -9,7 +9,7 @@ import com.quickpass.dto.PasswordDTO;
  *
  */
 
-public interface IPasswordStub {
+public interface IUserService {
 
 	/**
 	 * Get specimens from persistence layer.
@@ -17,7 +17,7 @@ public interface IPasswordStub {
 	 *@return a specimen with a matching ID.
 	 */
 
-	PasswordDTO fetchById(int id);
+	UserDTO fetchById(int id);
 
 	
 
@@ -27,7 +27,7 @@ public interface IPasswordStub {
 	 *
 	 */
 
-	void save(PasswordDTO passwordDTO);
+	void save(UserDTO userDTO);
 
 
 }
