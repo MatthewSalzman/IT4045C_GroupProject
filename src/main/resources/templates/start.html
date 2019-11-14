@@ -1,13 +1,35 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
-<head>
-<meta charset="ISO-8859-1">
-<title>PlantPlaces</title>
-</head>
-<body>
-Welcome to Quickpass!
-<br/>
-Your password information is:
-<p th:text="${passwordDTO}"/>		
-</body>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!--<link rel="stylesheet" type="text/css" href="style.css">-->
+		<title>Create Account</title>
+	</head>
+	<body>
+		<header>
+			<h1>Create Account</h1>
+		</header>
+		<div id="startContainer">
+			<div id="startHeader">
+				<!--<img id="avatar" src="" alt="The user's avatar"/>-->
+			</div>
+			<div id="startContent">	
+				<form id="startFields">
+					<label for="username">Username:</label>
+					<input type="text" id="username" name="username" autofocus required/><br/>
+					<label for="password">Password:</label>
+					<input type="password" id="password" name="password" required/><br/>
+					<label for="password">Retype Password:</label>
+					<input type="password" id="retypePassword" name="retypePassword" required/><br/>
+					<label for="email">Email:</label>
+					<input type="text" id="email" name="email" autofocus required/><br/>
+					<label for="phoneNumber">Phone # (Optional):</label>
+					<input type="text" id="phoneNumber" name="phoneNumber" autofocus required/><br/>
+					<input type="submit" value="CreateAccount" formtarget="post"><br/>
+					<input type="button" value="Cancel">
+				</form>
+			</div>
+		</div>
+	</body>
 </html>
