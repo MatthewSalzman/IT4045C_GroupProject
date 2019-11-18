@@ -16,19 +16,19 @@
 			<h1 class="display-3 mx-auto">QuickPass</h1>
 		</header>
 		<div id="loginContainer" class="row">
-			<div id="loginHeader">
-				<!--<img id="avatar" src="" alt="The user's avatar"/>-->
-			</div>
+			<!-- <div id="loginHeader">
+				<img id="avatar" src="" alt="The user's avatar"/>
+			</div> -->
 			<div id="loginContent" class="col-12 col-sm-10 mx-auto">
 				<div id="loginDesc" class="lead text-black-50">
 					<p>Enter your username and password</p>
 				</div>
-				<form id="loginFields" class="w-100 mx-auto">
+				<form id="loginFields" class="w-100 mx-auto" method="POST" action="processLogin">
 					<input type="text" id="username" name="username" placeholder="Username" class="w-100 p-1 mt-3"
 						autofocus required />
 					<input type="password" id="password" name="password" placeholder="Password" class="w-100 p-1 mt-3"
 						required />
-					<input type="submit" value="Login" formtarget="post"
+					<input type="submit" value="Login"
 						class="btn btn-success text-white w-100 mt-4">
 				</form>
 				<div id="loginErrorMsg" class="w-100 p-1 mt-3 text-danger invisible">Login Failed</div>

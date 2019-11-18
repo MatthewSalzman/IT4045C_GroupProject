@@ -6,73 +6,77 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.quickpass.dto.PasswordDTO;
 import com.quickpass.service.IPasswordService;
 
-
 /**
- @author Administrator
- Handle the /start endpoint
- @return
-*/
+ * @author Administrator Handle the /start endpoint
+ * @return
+ */
 @Controller
 public class QuickpassController {
-	
+
 	@Autowired
 	private IPasswordService passwordServiceStub;
-	
-	
-	
-	@RequestMapping(value="/start", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/start", method = RequestMethod.GET)
 	@ResponseBody
 	public PasswordDTO read(Model model) {
 		PasswordDTO passwordDTO = passwordServiceStub.fetchById(1);
 		model.addAttribute("passwordDTO", passwordDTO);
 		return passwordDTO;
 	}
-	
-	@RequestMapping(value="/start", method=RequestMethod.GET, headers={"content-type=text/json"})
+
+	@RequestMapping(value = "/start", method = RequestMethod.GET, headers = { "content-type=text/json" })
 	public String readJSON() {
 		return "start";
 	}
-	
-	
-	@RequestMapping(value="/start", method=RequestMethod.GET, params = {"loyalty=blue"})
+
+	@RequestMapping(value = "/start", method = RequestMethod.GET, params = { "loyalty=blue" })
 	public String readBlue() {
 		return "start";
 	}
-	@RequestMapping(value="/start", method=RequestMethod.GET, params = {"loyalty=silver"})
+
+	@RequestMapping(value = "/start", method = RequestMethod.GET, params = { "loyalty=silver" })
 	public String readSilver() {
 		return "start";
 	}
-	
-	
-	
+
 	@PostMapping("/start")
 	public String create() {
 		return "start";
 	}
-	
+
 	/**
-	 @author Administrator
-	 @ Handle the /start end point
-	 @return
-	*/
+	 * @author Administrator @ Handle the /start end point
+	 * @return
+	 */
 	@RequestMapping("/index")
 	public String index() {
 		return "start";
 	}
-	
-	@RequestMapping(value="/passwordtable", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/passwordTable", method = RequestMethod.GET)
 	public String startPasswordTable() {
-		return "passwordtable";
+		return "passwordTable";
 	}
-	
-	@RequestMapping(value="/login", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String startLogin() {
 		return "login";
 	}
-}
 
+	@PostMapping("/processLogin")
+	public String processLogin(@RequestParam("username") String username, @RequestParam("password") String password,
+			Model model) {
+		//to do:
+		//Authenticate username and password with database
+		//else show error
+		return "passwordTable";
+		
+
+	}
+}
