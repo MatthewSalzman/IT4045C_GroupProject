@@ -1,7 +1,15 @@
 package com.quickpass.dto;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GenerationType;
+import javax.persistence.GeneratedValue;
 
+
+@Entity
 public class UserDTO {
-	// Declare 
+	// Declare
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int userId;
 	private String firstName;
 	private String lastName;
