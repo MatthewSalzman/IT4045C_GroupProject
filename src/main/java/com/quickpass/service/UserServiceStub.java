@@ -1,12 +1,18 @@
 package com.quickpass.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.quickpass.dao.IUserDAO;
 import com.quickpass.dto.UserDTO;
 
 @Component
 public class UserServiceStub implements IUserService {
 
+	@Autowired
+	IUserDAO userDAO;
+	
+	
 	@Override
 	public UserDTO fetchById(int id) {
 		UserDTO userDTO = new UserDTO();
@@ -17,7 +23,9 @@ public class UserServiceStub implements IUserService {
 	}
 	
 	@Override
-	public void save(UserDTO userDTO) {
+	public boolean save(UserDTO userDTO) throws Exception {
+		userDAO.save(userDTO);
 		
+		return false;
 	}
 }

@@ -27,7 +27,7 @@ public interface IPasswordService {
 	 *
 	 */
 
-	void save(PasswordDTO passwordDTO);
+	boolean save(PasswordDTO passwordDTO) throws Exception;
 
 
 }

@@ -24,10 +24,11 @@ public interface IUserService {
 	/**
 	 * Persist the given DTO
 	 * @param specimenDTO
+	 * @throws Exception 
 	 *
 	 */
 
-	void save(UserDTO userDTO);
+	boolean save(UserDTO userDTO) throws Exception;
 
 
 }

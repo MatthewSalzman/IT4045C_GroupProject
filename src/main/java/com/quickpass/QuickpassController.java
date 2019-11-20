@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.quickpass.dto.PasswordDTO;
+import com.quickpass.dto.UserDTO;
 import com.quickpass.service.IPasswordService;
+import com.quickpass.service.IUserService;
 
 /**
  * @author Administrator Handle the /start endpoint
@@ -21,7 +23,10 @@ public class QuickpassController {
 
 	@Autowired
 	private IPasswordService passwordServiceStub;
-
+	
+	@Autowired
+	private IUserService userService;
+	
 	@RequestMapping(value = "/start", method = RequestMethod.GET)
 	@ResponseBody
 	public PasswordDTO read(Model model) {
@@ -30,6 +35,45 @@ public class QuickpassController {
 		return passwordDTO;
 	}
 
+	@RequestMapping(value = "/savepassword")
+	public String savePassword(PasswordDTO passwordDTO) {
+		passwordDTO.setPassword("Test");
+		passwordDTO.setWebsite("https://uc.edu");
+		passwordDTO.setPasswordId(1);
+		passwordDTO.setUserId(1);
+		
+		try {
+			passwordServiceStub.save(passwordDTO);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "error";
+		}
+		
+		
+		return "start";
+	}
+	@RequestMapping(value = "/saveuser")
+	public String saveUser(UserDTO userDTO) {
+		userDTO.setId(1);
+		userDTO.setEmail("test@test.com");
+		userDTO.setFirstName("Test");
+		userDTO.setLastName("User");
+		userDTO.setPassword("Pa$$w0rd");
+		
+		
+		try {
+			userService.save(userDTO);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "error";
+		}
+		
+		
+		return "start";
+	}
+	
 	@RequestMapping(value = "/start", method = RequestMethod.GET, headers = { "content-type=text/json" })
 	public String readJSON() {
 		return "start";
