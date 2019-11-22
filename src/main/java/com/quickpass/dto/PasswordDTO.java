@@ -1,8 +1,19 @@
 package com.quickpass.dto;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GenerationType;
+import javax.persistence.GeneratedValue;
+//import org.springframework.stereotype.Component;
+
+
+@Entity
 public class PasswordDTO {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int passwordId;
-	private String userId;
+	private int userId;
 	private String website;
 	private String password;
 	
@@ -13,10 +24,10 @@ public class PasswordDTO {
 	public void setPasswordId(int passwordId) {
 		this.passwordId = passwordId;
 	}
-	public String getUserId() {
+	public int getUserId() {
 		return userId;
 	}
-	public void setUserId(String userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 	public String getWebsite() {
@@ -32,9 +43,10 @@ public class PasswordDTO {
 		this.password = password;
 	}
 	
+	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return website;
+		return passwordId + " " + userId + " " + password;
 
 	}
 	

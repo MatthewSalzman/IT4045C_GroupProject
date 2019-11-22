@@ -9,7 +9,7 @@ import com.quickpass.dto.UserDTO;
  *
  */
 
-public interface IUserStub {
+public interface IUserService {
 
 	/**
 	 * Get specimens from persistence layer.
@@ -24,10 +24,11 @@ public interface IUserStub {
 	/**
 	 * Persist the given DTO
 	 * @param specimenDTO
+	 * @throws Exception 
 	 *
 	 */
 
-	void save(UserDTO userDTO);
+	boolean save(UserDTO userDTO) throws Exception;
 
 
 }

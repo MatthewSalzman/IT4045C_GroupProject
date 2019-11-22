@@ -9,7 +9,7 @@ import com.quickpass.dto.PasswordDTO;
  *
  */
 
-public interface IPasswordStub {
+public interface IPasswordService {
 
 	/**
 	 * Get specimens from persistence layer.
@@ -27,7 +27,7 @@ public interface IPasswordStub {
 	 *
 	 */
 
-	void save(PasswordDTO passwordDTO);
+	boolean save(PasswordDTO passwordDTO) throws Exception;
 
 
 }
