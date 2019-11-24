@@ -59,5 +59,10 @@ public class QuickpassController {
 	public String startLogin() {
 		return "login";
 	}
+	
+	@RequestMapping("/addPassword")
+	public String addPassword() {
+		return "addPassword";
+	}
 }
 
