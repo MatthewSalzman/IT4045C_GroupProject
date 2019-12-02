@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,10 +24,10 @@ public class QuickpassController {
 
 	@Autowired
 	private IPasswordService passwordServiceStub;
-	
+
 	@Autowired
 	private IUserService userService;
-	
+
 	@RequestMapping(value = "/start", method = RequestMethod.GET)
 	@ResponseBody
 	public PasswordDTO read(Model model) {
@@ -35,13 +36,14 @@ public class QuickpassController {
 		return passwordDTO;
 	}
 
-	@RequestMapping(value = "/savepassword")
-	public String savePassword(PasswordDTO passwordDTO) {
-		passwordDTO.setPassword("Test");
-		passwordDTO.setWebsite("https://uc.edu");
-		passwordDTO.setPasswordId(1);
-		passwordDTO.setUserId(1);
-		
+	@PostMapping(value = "/savepassword")
+	public String savePassword(@RequestParam("userId") int userId,
+			@RequestParam("website") String website, @RequestParam("password") String password) { 
+		PasswordDTO passwordDTO = new PasswordDTO();
+		passwordDTO.setUserId(userId);
+		passwordDTO.setWebsite(website);
+		passwordDTO.setPassword(password);
+
 		try {
 			passwordServiceStub.save(passwordDTO);
 		} catch (Exception e) {
@@ -49,19 +51,20 @@ public class QuickpassController {
 			e.printStackTrace();
 			return "error";
 		}
-		
-		
-		return "start";
+
+		return "passwordTable";
 	}
-	@RequestMapping(value = "/saveuser")
-	public String saveUser(UserDTO userDTO) {
-		userDTO.setId(1);
-		userDTO.setEmail("test@test.com");
-		userDTO.setFirstName("Test");
-		userDTO.setLastName("User");
-		userDTO.setPassword("Pa$$w0rd");
-		
-		
+
+	@PostMapping(value = "/saveuser")
+	public String saveUser(@RequestParam("firstName") String firstName,
+			@RequestParam("lastName") String lastName, @RequestParam("email") String email,
+			@RequestParam("password") String password) {
+		UserDTO userDTO = new UserDTO();
+		userDTO.setEmail(email);
+		userDTO.setFirstName(firstName);
+		userDTO.setLastName(lastName);
+		userDTO.setPassword(password);
+
 		try {
 			userService.save(userDTO);
 		} catch (Exception e) {
@@ -70,10 +73,9 @@ public class QuickpassController {
 			return "error";
 		}
 		
-		
-		return "start";
+		return "passwordTable";
 	}
-	
+
 	@RequestMapping(value = "/start", method = RequestMethod.GET, headers = { "content-type=text/json" })
 	public String readJSON() {
 		return "start";
@@ -98,29 +100,33 @@ public class QuickpassController {
 	 * @author Administrator @ Handle the /start end point
 	 * @return
 	 */
-	@RequestMapping("/index")
+	@GetMapping("/index")
 	public String index() {
-		return "start";
+		return "login";
 	}
 
-	@RequestMapping(value = "/passwordTable", method = RequestMethod.GET)
-	public String startPasswordTable() {
+	@GetMapping(value = "/passwordTable")
+	public String passwordTable() {
 		return "passwordTable";
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String startLogin() {
+	@GetMapping(value = "/login")
+	public String login() {
 		return "login";
+	}
+	
+	@GetMapping("/signup")
+	public String signup() {
+		return "signup";
 	}
 
 	@PostMapping("/processLogin")
 	public String processLogin(@RequestParam("username") String username, @RequestParam("password") String password,
 			Model model) {
-		//to do:
-		//Authenticate username and password with database
-		//else show error
+		// to do:
+		// Authenticate username and password with database
+		// else show error
 		return "passwordTable";
-		
 
 	}
 }

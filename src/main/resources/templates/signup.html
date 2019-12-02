@@ -9,35 +9,35 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="../style.css">
-<title>QuickPass</title>
+<title>QuickPass - Sign Up</title>
 </head>
 
 <body class="bg-offwhite">
 	<div
 		class="container bg-white text-center col-12 col-sm-10 col-md-7 col-lg-6 col-xl-4 p-4 mt-4 mx-auto shadow-lg">
 		<header class="row align-content-center">
-			<h1 class="display-3 mx-auto">QuickPass</h1>
+			<h1 class="display-3 mx-auto w-100">QuickPass</h1>
+			<div class="w-100 lead text-black-50">
+				<p>Sign up for QuickPass</p>
+			</div>
 		</header>
-		<div id="loginContainer" class="row">
-			<div id="loginContent" class="col-12 col-sm-10 mx-auto">
-				<div id="loginDesc" class="lead text-black-50">
-					<p>Enter your email and password</p>
-				</div>
-				<form id="loginFields" class="w-100 mx-auto" method="POST"
-					action="processLogin">
-					<input type="text" id="username" name="username"
-						placeholder="Email" class="w-100 p-1 mt-3" autofocus required />
-					<input type="password" id="password" name="password"
-						placeholder="Password" class="w-100 p-1 mt-3" required />
-					<input type="submit" value="Login"
+		<div class="row">
+			<div id="signUpContent" class="col-12 col-sm-10 mx-auto">
+				<form id="signUpFields" class="w-100 mx-auto" method="POST" 
+					action="saveuser">
+					<input type="text" id="firstName" name="firstName" placeholder="First name" 
+						class="w-100 p-1 mt-3" autofocus required /> 
+					<input type="text" id="lastName" name="lastName" placeholder="Last name" 
+						class="w-100 p-1 mt-3" required /> 
+					<input type="text" id="email" name="email" placeholder="Email" 
+						class="w-100 p-1 mt-3" required />
+					<input type="password" id="password" name="password" placeholder="Password" 
+						class="w-100 p-1 mt-3" required /> 
+					<input type="submit" value="Sign Up" 
 						class="btn btn-success text-white w-100 mt-4">
 				</form>
-				<div id="signUpText" class="text-black-50 mt-2">
-					<a href="signup"> No Account? Sign Up </a>
-				</div>
-				<div id="loginErrorMsg" class="w-100 p-1 mt-2 text-danger invisible">
-					Login Failed
-				</div>
+				<div id="loginErrorMsg" class="w-100 p-1 mt-3 text-danger invisible">Login
+					Failed</div>
 			</div>
 		</div>
 	</div>
